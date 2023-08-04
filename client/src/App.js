@@ -4,27 +4,36 @@ import axios from 'axios'
 function App() {
   const [keyword,setkeyword]=useState("")
   const [shayari,setshayari]=useState("")
-  const [load,setload]=useState(true)
+  const [load,setload]=useState(false)
+  const [error,seterror]=useState("")
 
   const handleClick=async()=>{
     try {
+      setload(!load)
       const response=await axios.post(`http://localhost:8000/generate-shayari`,{keyword})
-      console.log(response.data.shayari)
       let ans=response.data.shayari
       setshayari(ans)
       setload(false)
+      setkeyword("")
     } catch (error) {
-      console.log(error.message)
-      setshayari(error)
+      setload(false)
+      let ans=(error.response.data.error)
+      seterror(ans)
     }
   }
   return (
-    <div className="App">
-      <h1>shayari app</h1>
-      <input type='text' value={keyword} onChange={(e)=>setkeyword(e.target.value)}/>
+    <div className='div'>
+      <div className="App">
+      <h1>Shayari app</h1>
+      <input className='input' type='text' value={keyword} onChange={(e)=>setkeyword(e.target.value)} placeholder='search by keyword'/>
       <button onClick={handleClick}>generate shayari</button>
-      {load?(<div>Loading....</div>):(<div>{shayari}</div>)}
-      {/* <div>{shayari}</div> */}
+      <br/>
+      <p>{error}</p>
+      {load?(<div>Loading...</div>):''}
+      <div className='shayari'>
+        <h4 >{shayari}</h4>
+      </div>
+      </div>
     </div>
   );
 }

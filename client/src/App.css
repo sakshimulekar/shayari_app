@@ -1,7 +1,43 @@
+.div{
+  padding: 10px;
+  background-color: cadetblue;
+  height: 95vh;
+}
 .App {
   text-align: center;
+  /* border: 1px solid black; */
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+  margin: auto;
+  height: 80vh;
+  background-color: rgba(58, 129, 236, 0.654);
 }
-
+.input{
+  padding: 10px;
+  width: 20%;
+  border: none;
+  font-size: 17px;
+}
+button{
+  padding: 10px;
+  background-color: tomato;
+  margin: 5px;
+  border: none;
+  color: beige;
+  font-size: 17px;
+}
+.shayari{
+  /* border: 1px solid black; */
+  width: 40%;
+  margin: auto;
+  height: 50vh;
+}
+.shayari h4{
+  padding: 10px;
+  text-align: center;
+  
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
