@@ -10,7 +10,7 @@ function App() {
   const handleClick=async()=>{
     try {
       setload(!load)
-      const response=await axios.post(`http://localhost:8000/generate-shayari`,{keyword})
+      const response=await axios.post(`https://shayari-backend-uofj.onrender.com/generate-shayari`,{keyword})
       let ans=response.data.shayari
       setshayari(ans)
       setload(false)
